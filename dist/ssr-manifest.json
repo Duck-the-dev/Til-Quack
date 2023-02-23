@@ -1,0 +1,83 @@
+{
+  "\u0000plugin-vue:export-helper": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "\u0000vite/modulepreload-polyfill": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "../../../../../vite.svg": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "index.html": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@unhead/dom/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@unhead/shared/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@unhead/vue/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/@vueuse/head/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/hookable/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/unhead/dist/index.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/vite-ssg/dist/client/single-page.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/App.vue": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/App.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/App.vue?vue&type=style&index=0&scoped=7a7a37b1&lang.css": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/assets/vue.svg": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/components/HelloWorld.vue": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/components/HelloWorld.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/components/HelloWorld.vue?vue&type=style&index=0&scoped=e17ea971&lang.css": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/main.ts": [
+    "/assets/vue-5532db34.svg"
+  ],
+  "src/style.css": [
+    "/assets/vue-5532db34.svg"
+  ]
+}
