@@ -1,0 +1,43 @@
+<script setup lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+import { useHead } from '@vueuse/head'
+
+
+useHead({
+  title: 'vueStart',
+  meta: [
+    {
+      name: 'description',
+      content: 'Vue learning journey',
+    },
+  ],
+})
+</script>
+
+<template>
+  
+  <div class="flex justify-center items-center ">
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo h-44 w-44 " alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue h-44 w-44" alt="Vue logo" />
+    </a>
+  </div>
+  <HelloWorld msg="LonesomeT0wn start" />
+</template>
+
+<style scoped>
+.logo {
+  height: 8em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>
