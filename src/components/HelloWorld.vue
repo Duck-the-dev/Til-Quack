@@ -7,10 +7,16 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1 class="drop-shadow-md hover:drop-shadow-2xl hover:shadow-xl shadow-purple-400 duration-200	bg-gradient-to-r bg-clip-text bg-transparent text-transparent from-pink-900 to-purple-500">{{ msg }}</h1>
+  <h1
+    class="drop-shadow-md hover:drop-shadow-2xl hover:shadow-xl shadow-purple-400 duration-200 bg-gradient-to-r bg-clip-text bg-transparent text-transparent from-pink-900 to-purple-500"
+  >
+    {{ msg }}
+  </h1>
 
   <div class="card">
-    <button class="btn btn-primary" type="button" @click="count++">count is {{ count }}</button>
+    <button class="btn btn-primary" type="button" @click="count++">
+      count is {{ count }}
+    </button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
@@ -19,8 +25,7 @@ const count = ref(0)
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a
     >, the official Vue + Vite starter
   </p>
   <p>

@@ -2,7 +2,6 @@
 import HelloWorld from './components/HelloWorld.vue'
 import { useHead } from '@vueuse/head'
 
-
 useHead({
   title: 'vueStart',
   meta: [
@@ -15,10 +14,9 @@ useHead({
 </script>
 
 <template>
-  
-  <div class="flex justify-center items-center ">
+  <div class="flex justify-center items-center">
     <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo h-44 w-44 " alt="Vite logo" />
+      <img src="/vite.svg" class="logo h-44 w-44" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue h-44 w-44" alt="Vue logo" />

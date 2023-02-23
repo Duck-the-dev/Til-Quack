@@ -9,40 +9,80 @@
     "build": "vue-tsc && vite-ssg build",
     "build:dev": "pnpm clean:dist && cp env/env.dev .env && vite build --mode development",
     "build:prod": "pnpm clean:dist && cp env/env.prod .env && vite build --mode prod",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint \"**/*.vue\"",
+    "lint:fix": "eslint \"**/*.vue\" --fix",
     "preview": "vite preview",
     "prepare": "husky install",
-    "test": "pnpm lint:fix && cypress run --component --headless"
+    "type": "vue-tsc --noEmit",
+    "test": "prettier -w ./src && pnpm lint:fix",
+    "format": "prettier -w ./src",
+    "git": "git add . && git cz && git push"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
     "@vueuse/core": "^9.13.0",
-    "unplugin-icons": "^0.15.3",
-    "unplugin-vue-components": "^0.24.0",
-    "vite-plugin-compression": "^0.5.1",
+    "@vueuse/head": "^1.0.26",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.26",
+    "@types/glob": "^7.2.0",
+    "@types/markdown-it-link-attributes": "^3.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-vue": "^4.0.0",
-    "@vueuse/head": "^1.0.26",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/test-utils": "^2.3.0",
     "autoprefixer": "^10.4.13",
+    "commitlint-config-cz": "^0.13.3",
     "critters": "^0.0.16",
     "cypress": "^12.6.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "cz-customizable": "^6.9.2",
     "daisyui": "^2.51.0",
     "dotenv-cli": "^7.0.0",
     "eslint": "^8.34.0",
     "eslint-plugin-vue": "^9.9.0",
     "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prettier-eslint-cli": "^7.1.0",
+    "prettier-plugin-tailwindcss": "^0.2.3",
     "rimraf": "^4.1.2",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.5",
+    "unplugin-icons": "^0.15.3",
+    "unplugin-vue-components": "^0.24.0",
     "vite": "^4.1.4",
+    "vite-plugin-compression": "^0.5.1",
     "vite-ssg": "^0.22.1",
+    "vitest": "^0.28.5",
     "vue-router": "^4.1.6",
     "vue-tsc": "^1.1.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  },
+  "lint-staged": {
+    "src/**.{js,json,md,vue}": [
+      "eslint --fix --color --ignore-path .eslintignore",
+      "prettier --write"
+    ]
   }
 }

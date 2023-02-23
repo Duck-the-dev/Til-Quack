@@ -6,7 +6,6 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import { configCompressPlugin } from './config/compress'
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
   optimizeDeps: {
@@ -27,16 +26,31 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    // https://github.com/antfu/unplugin-vue-components
     Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ['vue'],
+
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/],
+
+      // custom resolvers
       resolvers: [
-        IconsResolver(),
+        // auto import icons
+        // https://github.com/antfu/unplugin-icons
+        IconsResolver({
+          prefix: false,
+          // enabledCollections: ['carbon']
+        }),
       ],
+
+      dts: 'src/components.d.ts',
     }),
+
+    // https://github.com/antfu/unplugin-icons
     Icons({
-      // experimental
       autoInstall: true,
     }),
     configCompressPlugin('brotli'),
-
   ],
 })
