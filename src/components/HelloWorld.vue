@@ -8,13 +8,13 @@ const count = ref(0)
 
 <template>
   <h1
-    class="drop-shadow-md hover:drop-shadow-2xl hover:shadow-xl shadow-purple-400 duration-200 bg-gradient-to-r bg-clip-text bg-transparent text-transparent from-pink-900 to-purple-500"
+    class="bg-transparent bg-gradient-to-r from-pink-900 to-purple-500 bg-clip-text text-transparent shadow-purple-400 drop-shadow-md duration-200 hover:shadow-xl hover:drop-shadow-2xl"
   >
     {{ msg }}
   </h1>
 
   <div class="card">
-    <button class="btn btn-primary" type="button" @click="count++">
+    <button class="btn-primary btn" type="button" @click="count++">
       count is {{ count }}
     </button>
     <p>
