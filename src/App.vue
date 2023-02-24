@@ -6,6 +6,17 @@ useHead({
   title: 'vueStart',
   meta: [
     {
+      
+      name: 'theme-color',
+      content: '#ffffff',
+    },
+  ],
+})
+useHead({
+  title: 'vueStart',
+  meta: [
+    {
+      
       name: 'description',
       content: 'Vue learning journey',
     },
