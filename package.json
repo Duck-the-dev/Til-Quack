@@ -16,7 +16,8 @@
     "type": "vue-tsc --noEmit",
     "test": "prettier -w ./src && pnpm lint:fix",
     "format": "prettier -w ./src",
-    "git": "git add . && git cz && git push"
+    "git": "git add . && git cz && git push",
+    "git:build": "pnpm clean:dist && cp env/env.prod .env && vite-ssg build --mode prod && git add . && git cz && git push"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
