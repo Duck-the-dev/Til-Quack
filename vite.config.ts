@@ -61,20 +61,23 @@ export default defineConfig({
         name: 'Modern Vue',
         short_name: 'modern-vue',
         theme_color: '#ffffff',
+        dir: "ltr",
+        lang: "en-US",
+      
         icons: [
           {
-            src: '/pwa-192x192.png',
-            sizes: '192x192',
+            src: './src/assets/icons8-cash-24.png',
+            sizes: '24x24',
             type: 'image/png',
           },
           {
-            src: '/pwa-512x512.png',
-            sizes: '512x512',
+            src: './src/assets/icons8-cash-48.png',
+            sizes: '48x48',
             type: 'image/png',
           },
           {
-            src: '/pwa-512x512.png',
-            sizes: '512x512',
+            src: './src/assets/icons8-cash-96.png',
+            sizes: '96x96',
             type: 'image/png',
             purpose: 'any maskable',
           },
