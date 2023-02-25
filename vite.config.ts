@@ -6,6 +6,10 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import { configCompressPlugin } from './config/compress'
 import { VitePWA } from 'vite-plugin-pwa'
+import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Inspect from 'vite-plugin-inspect'
+
 
 
 // https://vitejs.dev/config/
@@ -17,6 +21,14 @@ export default defineConfig({
   build: {
     minify: true,
   },
+      css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
+      },
+    },
+    // @ts-ignore
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
@@ -28,6 +40,17 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    AutoImport({
+      imports: ['vue', '@vueuse/core'],
+      resolvers: [
+        ElementPlusResolver(),
+      ],
+      dirs: [
+        './composables/**',
+      ],
+      vueTemplate: true,
+      cache: true,
+    }),
     // https://github.com/antfu/unplugin-vue-components
     Components({
       // allow auto load markdown components under `./src/components/`

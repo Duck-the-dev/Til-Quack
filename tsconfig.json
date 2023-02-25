@@ -24,8 +24,6 @@
     },
 
     "types": [
-      "vitest",
-      "cypress",
       "vue/ref-macros",
       "vite/client",
       "vite-plugin-pwa/client"
@@ -36,13 +34,10 @@
   "exclude": [
     "dist",
     "node_modules",
-    "cypress",
     "build",
     "scripts",
     "postcss.config.js",
     "tailwind.config.js"
   ],
-  "references": [{
-    "path": "./tsconfig.node.json"
-  }]
+
 }
