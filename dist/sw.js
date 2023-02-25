@@ -78,20 +78,35 @@ define(['./workbox-148cb7e5'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "assets/app-58687c87.js",
+    "url": "assets/app-6f81a301.js",
     "revision": null
   }, {
-    "url": "assets/index-4d599b6b.css",
+    "url": "assets/index-0f21cc80.css",
     "revision": null
   }, {
     "url": "index.html",
-    "revision": "7e0969c470cb97d1d7774d077569e785"
+    "revision": "dc8f8325464f726678e5dd07134147b4"
   }, {
     "url": "registerSW.js",
     "revision": "1872c500de691dce40960bb85481de07"
   }, {
+    "url": "favicon.svg",
+    "revision": "fd480326ce2f9db2043fceedae54cb67"
+  }, {
+    "url": "robots.txt",
+    "revision": "5e0bd1c281a62a380d7a948085bfe2d1"
+  }, {
+    "url": "safari-pinned-tab.svg",
+    "revision": "5eaf74d1c43d30e0af743b68a3f48504"
+  }, {
+    "url": "pwa-192x192.png",
+    "revision": "65f6c00ff3d88d8371df0480c1ba0272"
+  }, {
+    "url": "pwa-512x512.png",
+    "revision": "20a2db7d5040eb315e6acf49c6983de9"
+  }, {
     "url": "manifest.webmanifest",
-    "revision": "cd00f6aa22e15781f1b7513aabbe1b84"
+    "revision": "0c62bd7a3b84fafc1e7dd8309ec1ec39"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html")));

@@ -66,18 +66,18 @@ export default defineConfig({
       
         icons: [
           {
-            src: './src/assets/icons8-cash-24.png',
-            sizes: '24x24',
+            src: '/pwa-192x192.png',
+            sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: './src/assets/icons8-cash-48.png',
-            sizes: '48x48',
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: './src/assets/icons8-cash-96.png',
-            sizes: '96x96',
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
           },
