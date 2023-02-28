@@ -14,7 +14,9 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "type": "vue-tsc",
-    "test": "prettier -w ./src && pnpm lint:fix",
+    "test:e2e": "",
+    "test": "vitest --run",
+    "test:unit": "vitest --ui",
     "format": "prettier -w ./src",
     "git": "git add . && git cz && git push",
     "git:build": "pnpm build:prod && git add . && git cz && git push"
@@ -32,6 +34,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
+    "@tsconfig/node18": "^1.0.1",
     "@types/glob": "^7.2.0",
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/mocha": "^10.0.1",
@@ -39,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vitest/ui": "^0.29.2",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/test-utils": "^2.3.0",
     "autoprefixer": "^10.4.13",
@@ -51,6 +55,7 @@
     "eslint": "^8.34.0",
     "eslint-plugin-vue": "^9.9.0",
     "husky": "^8.0.3",
+    "jsdom": "^21.1.0",
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
@@ -67,6 +72,7 @@
     "vite-plugin-inspect": "^0.7.15",
     "vite-plugin-pwa": "^0.14.4",
     "vite-ssg": "^0.22.1",
+    "vitest": "^0.29.2",
     "vue-tsc": "^1.2.0"
   },
   "husky": {
