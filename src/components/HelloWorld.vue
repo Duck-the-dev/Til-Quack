@@ -14,7 +14,11 @@ const count = ref(0)
   </h1>
 
   <div class="card">
-    <button class="btn-primary btn" type="button" @click="count++">
+    <button
+      class="drawer-button mb-5 shadow-lg drop-shadow-2xl focus:outline-none"
+      type="button"
+      @click="count++"
+    >
       count is {{ count }}
     </button>
     <p>

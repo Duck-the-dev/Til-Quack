@@ -3,17 +3,43 @@ import HelloWorld from './components/HelloWorld.vue'
 import { useHead } from '@vueuse/head'
 
 useHead({
-  title: 'vueStart',
+  title: 'Duck-the-dev vue + vite Template',
+  link: [
+    {
+      rel: 'mask-icon',
+      href: '/safari-pinned-tab.svg',
+      color: '#00aba9',
+    },
+    {
+      rel: 'icon',
+      href: '/favicon.svg',
+      type: 'image/svg+xml',
+    },
+    {
+      rel: 'apple-touch-icon',
+      href: '/pwa-192x192.png',
+    },
+    {
+      rel: 'canonical',
+      href: 'https://coral-app-29wb9.ondigitalocean.app',
+    },
+  ],
   meta: [
+    {
+      charset: 'UTF-8',
+    },
+    {
+      name: 'msapplication-TileColor',
+      content: '#00aba9',
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1.0',
+    },
     {
       name: 'theme-color',
       content: '#ffffff',
     },
-  ],
-})
-useHead({
-  title: 'vueStart',
-  meta: [
     {
       name: 'description',
       content: 'Vue learning journey',

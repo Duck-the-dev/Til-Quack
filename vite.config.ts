@@ -8,7 +8,7 @@ import { configCompressPlugin } from './config/compress'
 import { VitePWA } from 'vite-plugin-pwa'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Inspect from 'vite-plugin-inspect'
+
 
 
 
