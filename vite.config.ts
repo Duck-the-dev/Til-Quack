@@ -7,13 +7,15 @@ import Components from 'unplugin-vue-components/vite'
 import { configCompressPlugin } from './config/compress'
 import { VitePWA } from 'vite-plugin-pwa'
 import AutoImport from 'unplugin-auto-import/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+import imagemin from 'unplugin-imagemin/vite';
 
 
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  assetsInclude: ['**/*.webp'],
   optimizeDeps: {
     include: includeDeps,
     exclude: excludeDeps,
@@ -38,12 +40,17 @@ export default defineConfig({
       // Other options: https://github.com/GoogleChromeLabs/critters#usage
     },
   },
+
   plugins: [
     vue(),
+
+
     AutoImport({
+
+
       imports: ['vue', '@vueuse/core'],
       resolvers: [
-        ElementPlusResolver(),
+        // ElementPlusResolver(),
       ],
       dirs: [
         './composables/**',
@@ -75,6 +82,59 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-icons
     Icons({
       autoInstall: true,
+      compiler: 'vue3' 
+    }),
+    //https://github.com/ErKeLost/unplugin-imagemin
+    imagemin({
+      // Default mode squoosh. support squoosh and sharp
+      mode: 'sharp',
+      // Default configuration options for compressing different pictures
+      
+      compress: {
+        
+        jpg: {
+          quality: 0,
+        },
+        jpeg: {
+          quality: 75,
+          progressive: false,
+          chromaSubsampling: '4:4:4',
+          trellisQuantisation: false,
+          overshootDeringing: false,
+          optimiseScans: false,
+          optimizeScans: false,
+          optimiseCoding: true,
+          optimizeCoding: true,
+          quantisationTable: 0,
+          quantizationTable: 0,
+          force: true,
+        },
+        png: {
+          progressive: false,
+          compressionLevel: 6,
+          adaptiveFiltering: false,
+          force: true,
+          palette: true,
+          quality: 75,
+          effort: 5,
+          bitdepth: 8,
+          dither: 1,
+        },
+        webp: {
+          quality: 70,
+          alphaQuality: 100,
+          lossless: false,
+          nearLossless: false,
+          smartSubsample: false,
+          effort: 6,
+        },
+      },
+      // The type of picture converted after the build
+      conversion: [
+        { from: 'png', to: 'jpeg' },
+        { from: 'jpeg', to: 'webp' },
+
+      ]
     }),
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({

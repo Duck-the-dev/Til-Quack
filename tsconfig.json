@@ -41,7 +41,9 @@
       "vue/ref-macros",
       "vite/client",
       "vite-plugin-pwa/client",
-      "vitest/globals"
+      "vitest/globals",
+      "unplugin-icons/types/vue",
+
 
     ]
   },
