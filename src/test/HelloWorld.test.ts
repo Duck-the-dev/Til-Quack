@@ -1,4 +1,4 @@
-import HelloWorldVue from '../components/HelloWorld.vue'
+import HelloWorldVue from '../views/HelloWorld.vue'
 import { mount } from '@vue/test-utils'
 
 describe('counter', () => {

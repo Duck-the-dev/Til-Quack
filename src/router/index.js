@@ -32,12 +32,12 @@ const router = createRouter({
           },
           {
             name: 'author',
-            content: 'Bardi.tech',
+            content: '#',
           },
           {
             name: 'keywords',
             content:
-              'Bardi.tech, tech, project, Bardi, Bardi tech, Bardi Technologies, Bardi Technologies LLC, Bardi Technologies LLC., HTML, CSS, JavaScript, project, software, startup, student, graduation, vue, golang ',
+              '# keywords',
           },
           {
             name: 'description',
@@ -58,7 +58,7 @@ const router = createRouter({
           {
             name: 'twitter:creator',
 
-            content: '@bardi_tech',
+            content: '@twitter',
           },
           {
             name: 'twitter:description',
@@ -69,7 +69,7 @@ const router = createRouter({
           {
             name: 'twitter:url',
 
-            content: 'https://bardi.tech',
+            content: '# twitter url',
           },
           {
             name: 'twitter:title',
@@ -86,7 +86,7 @@ const router = createRouter({
           // facebook meta tags
           {
             property: 'og:url',
-            content: 'https://bardi.tech',
+            content: '# ',
           },
           {
             property: 'og:type',
@@ -94,7 +94,7 @@ const router = createRouter({
           },
           {
             property: 'og:title',
-            content: 'Bardi.tech',
+            content: '# ',
           },
           {
             property: 'og:description',
@@ -103,7 +103,7 @@ const router = createRouter({
           },
           {
             property: 'og:image',
-            content: '../assets/images/FacebookProfileImage.png',
+            content: '../assets/images/*.png',
           },
 
           // pinterest meta tags
@@ -135,7 +135,7 @@ const router = createRouter({
           {
             name: 'google-site-verification',
             content:
-              'google-site-verification=v93jivthA0fTyyfXrlsyhjLTY8j_uMAihyRf1k3qk_A',
+              'google-site-verification=',
           },
           // norton meta tags
           {
@@ -170,12 +170,12 @@ const router = createRouter({
           },
           {
             name: 'author',
-            content: 'Bardi.tech',
+            content: '#',
           },
           {
             name: 'keywords',
             content:
-              'Bardi.tech, 404, not found, Bardi, Bardi tech, Bardi Technologies, Bardi Technologies LLC, Bardi Technologies LLC., HTML, CSS, JavaScript, project, software, startup, student, graduation, vue, golang ',
+              '# keywords',
           },
           {
             name: 'description',
