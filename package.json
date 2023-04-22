@@ -1,36 +1,37 @@
 {
   "name": "vue-start",
-  "private": true,
   "version": "0.0.1",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "cp env/env.dev .env && vite --mode dev",
-    "clean:dist": "rimraf dist",
-    "build": "vue-tsc && vite-ssg build",
-    "build:dev": "pnpm clean:dist && cp env/env.dev .env && vite-ssg build --mode development",
-    "build:prod": "pnpm clean:dist && cp env/env.prod .env && vite-ssg build --mode prod",
-    "prod": "npm run format && npm run type && npm run lint:fix && npm run build:prod",
-    "lint": "eslint \"**/*.vue\"",
-    "lint:fix": "eslint \"**/*.vue\" --fix",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "type": "vue-tsc",
-    "test:e2e": "",
-    "test": "vitest --run --coverage -u",
+    "build": "vue-tsc && vite build",
     "test:unit": "vitest --ui",
+    "test:e2e": "",
+    "lint": "eslint \"**/*.vue\"",
+    "build:dev": "pnpm clean:dist && cp env/env.dev .env && vite build --mode development",
+    "build:prod": "pnpm clean:dist && cp env/env.prod .env && vite build --mode prod",
+    "clean:dist": "rimraf dist",
+    "dev": "cp env/env.dev .env && vite --mode dev",
     "format": "prettier -w ./src",
+    "git": "npm run prod && npm run git:short",
     "git:short": "git add . && git cz && git push",
-    "git": "npm run prod && npm run git:short"
+    "lint:fix": "eslint \"**/*.vue\" --fix",
+    "prepare": "husky install",
+    "preview": "vite preview",
+    "prod": "npm run format && npm run type && npm run lint:fix && npm run build:prod",
+    "test": "vitest --run --coverage -u",
+    "type": "vue-tsc"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^1.9.3",
     "@vueuse/core": "^9.13.0",
-    "@vueuse/head": "^1.1.5",
+    "@vueuse/head": "^1.1.23",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-adblock-detector": "^1.2.4",
+    "vue3-cookies": "^1.0.6"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.27",
+    "@iconify/json": "^2.2.37",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
@@ -38,6 +39,7 @@
     "@tsconfig/node18": "^1.0.1",
     "@types/glob": "^7.2.0",
     "@types/markdown-it-link-attributes": "^3.0.1",
+    "@types/mixpanel-browser": "^2.38.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
@@ -47,6 +49,7 @@
     "@vitest/ui": "^0.29.2",
     "@vue/compiler-sfc": "^3.2.47",
     "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/server-renderer": "^3.2.47",
     "@vue/test-utils": "^2.3.0",
     "autoprefixer": "^10.4.13",
     "commitlint-config-cz": "^0.13.3",
@@ -75,14 +78,10 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-inspect": "^0.7.15",
     "vite-plugin-pwa": "^0.14.4",
-    "vite-ssg": "^0.22.1",
+    "vite-plugin-sitemap": "^0.3.0",
     "vitest": "^0.29.2",
+    "vue-router": "^4.0.13",
     "vue-tsc": "^1.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "config": {
     "commitizen": {
@@ -92,10 +91,16 @@
       "config": "./.cz-config.js"
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**.{js,json,md,vue}": [
       "eslint --fix --color --ignore-path .eslintignore",
       "prettier --write"
     ]
-  }
+  },
+  "type": "module"
 }

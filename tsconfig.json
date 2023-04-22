@@ -43,11 +43,13 @@
       "vite-plugin-pwa/client",
       "vitest/globals",
       "unplugin-icons/types/vue",
+      
+      
 
 
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","src/*.vue","src/*.ts", "src/router/index.js", "src/router/index.js", "src/main.ts", "src/main.ts"],
   "exclude": [
     "dist",
     "node_modules",

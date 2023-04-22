@@ -4,7 +4,7 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+
   font-weight: 400;
 
   color-scheme: light dark;
@@ -18,16 +18,33 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@font-face {
+  font-family: 'Poppins', 'Lato';
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+
+  unicode-range: U+000-5FF;
+  src: local('Lato'),
+    url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700;900&display=swap')
+      format('woff2'),
+    local('Poppins')
+      url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap')
+      format('woff2');
 }
-a:hover {
-  color: #535bf2;
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+#app {
+  padding: 0 !important;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
+  background-color: #45062e;
+
   margin: 0;
   display: flex;
   place-items: center;
@@ -37,7 +54,7 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  /* line-height: 1.1; */
 }
 
 button {
@@ -75,10 +92,43 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* styles for screens larger than 992px */
+@media (min-width: 992px) {
+  img {
+    width: 70%; /* adjust the value as needed */
+    height: auto;
+  }
+}
+
+/* styles for screens between 768px and 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  img {
+    width: 70%; /* adjust the value as needed */
+    height: auto;
+  }
+}
+
+/* styles for screens smaller than 768px */
+@media (max-width: 767px) {
+  img {
+    width: 100%; /* adjust the value as needed */
+    height: auto;
+  }
+}
+
+/* styles for screens smaller than 576px */
+@media (max-width: 575px) {
+  img {
+    width: 90%; /* adjust the value as needed */
+    height: auto;
+  }
+  .page-router {
+    flex-direction: column;
   }
 }

@@ -4,36 +4,43 @@ import vue from '@vitejs/plugin-vue'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
-import { configCompressPlugin } from './config/compress'
+import path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
 import AutoImport from 'unplugin-auto-import/vite'
+import Sitemap from 'vite-plugin-sitemap'
+import imagemin from 'unplugin-imagemin/vite'
 
-import imagemin from 'unplugin-imagemin/vite';
+const routes = [ 'privacy','notfound','contact']
 
-
-
+const dynamicRoutes = routes.map((route) => `/${route}`)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  assetsInclude: ['**/*.webp'],
+  assetsInclude: [
+    '**/*.webp',
+
+
+  ],
   optimizeDeps: {
     include: includeDeps,
     exclude: excludeDeps,
   },
   build: {
     minify: true,
+    chunkSizeWarningLimit: 2000,
   },
-      css: {
-      preprocessorOptions: {
-        less: {
-          javascriptEnabled: true,
-        },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
       },
     },
-    // @ts-ignore
+  },
+  // @ts-ignore
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
+
     crittersOptions: {
       // E.g., change the preload strategy
       preload: 'js-lazy',
@@ -44,17 +51,18 @@ export default defineConfig({
   plugins: [
     vue(),
 
-
+    Sitemap({
+      hostname: 'https://bardi.tech/',
+      dynamicRoutes: dynamicRoutes,
+      exclude: ['/sitemap'],
+      readable: true,
+    }),
     AutoImport({
-
-
       imports: ['vue', '@vueuse/core'],
       resolvers: [
         // ElementPlusResolver(),
       ],
-      dirs: [
-        './composables/**',
-      ],
+      dirs: ['./composables/**'],
       vueTemplate: true,
       cache: true,
     }),
@@ -82,18 +90,17 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-icons
     Icons({
       autoInstall: true,
-      compiler: 'vue3' 
+      compiler: 'vue3',
     }),
     //https://github.com/ErKeLost/unplugin-imagemin
     imagemin({
       // Default mode squoosh. support squoosh and sharp
       mode: 'sharp',
       // Default configuration options for compressing different pictures
-      
+
       compress: {
-        
         jpg: {
-          quality: 0,
+          quality: 75,
         },
         jpeg: {
           quality: 75,
@@ -130,27 +137,112 @@ export default defineConfig({
         },
       },
       // The type of picture converted after the build
-      conversion: [
-        { from: 'png', to: 'jpeg' },
-        { from: 'jpeg', to: 'webp' },
 
-      ]
+      conversion: [{ from: 'jpeg', to: 'webp' }],
     }),
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'safari-pinned-tab.svg'],
-      manifest: {
-        name: 'Modern Vue',
-        short_name: 'modern-vue',
-        theme_color: '#ffffff',
-        dir: "ltr",
-        lang: "en-US",
+      strategies: 'generateSW',
+      srcDir: 'src',
+
+      base: '/',
       
+      includeAssets: ['favicon.ico', 'robots.txt', 'safari-pinned-tab.svg'],
+      workbox: {
+
+        globPatterns: ['**/*.{js,css,html,woff2,woff,ttf,svg,png,jpg,jpeg,gif}'],
+        globDirectory: 'dist',
+        globIgnores: [ '**/404.html'],
+        skipWaiting: true,
+        clientsClaim: true,
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-stylesheets',
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/cdn\.jsdelivr\.net/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'jsdelivr',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+              },
+            },
+          },
+     
+          // cloudflare cdn
+          {
+            urlPattern: /^https:\/\/cdnjs\.cloudflare\.com/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'cdnjs',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+              },
+            },
+          },
+          // assets cache
+          {
+            urlPattern: /^https:\/\/bardi\.tech\/assets\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'assets',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+              },
+            },
+          },
+        ],
+      },
+
+      manifest: {
+        name: 'Bardi.tech',
+        short_name: 'Bardi.tech',
+
+        theme_color: '#ffffff',
+        dir: 'ltr',
+        lang: 'en-US',
+        description: 'Bardi.tech',
+        display: 'standalone',
+        background_color: '#ffffff',
+        start_url: '/',
+        scope: '/',
+
         icons: [
           {
-            src: '/pwa-192x192.png',
-            sizes: '192x192',
+            src: '/pwa-256x256.png',
+            sizes: '256x256',
             type: 'image/png',
           },
           {
@@ -168,6 +260,6 @@ export default defineConfig({
       },
     }),
 
-    configCompressPlugin('brotli'),
+    // configCompressPlugin('brotli'),
   ],
 })
